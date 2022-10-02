@@ -20,7 +20,7 @@
         <span>
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
-        <span class="fs-xl text mx-2 mb-1 pl-3">内蒙古人口盟市排行</span>
+        <span class="fs-xl text mx-2 mb-1 pl-3">内蒙古盟市人口排行</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
       </div>
       <div class="percent">
