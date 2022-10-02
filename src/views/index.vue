@@ -8,7 +8,7 @@
           <div class="d-flex jc-center">
             <dv-decoration-8 class="dv-dec-8" :color="decorationColor" />
             <div class="title">
-              <span class="title-text">农业大数据统计展示系统o</span>
+              <span class="title-text">农业大数据统计展示系统</span>
               <dv-decoration-6
                 class="dv-dec-6"
                 :reverse="true"
