@@ -1,5 +1,5 @@
 {
-  "name": "big-screen-vue-datav",
+  "name": "农业大数据统计展示系统",
   "version": "1.5.1",
   "private": true,
   "scripts": {
@@ -47,7 +47,7 @@
     "> 1%",
     "last 2 versions"
   ],
-  "description": "**通知：最新的低代码大屏系统GoView已开源，详见：[https://gitee.com/MTrun/go-view](https://gitee.com/MTrun/go-view)**",
+  "description": "",
   "main": "babel.config.js",
   "repository": {
     "type": "git",
