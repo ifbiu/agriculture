@@ -3,50 +3,7 @@
     <div class="bg">
       <dv-loading v-if="loading">Loading...</dv-loading>
       <div v-else class="host-body">
-        <div class="d-flex jc-center">
-          <dv-decoration-10 class="dv-dec-10" />
-          <div class="d-flex jc-center">
-            <dv-decoration-8 class="dv-dec-8" :color="decorationColor" />
-            <div class="title">
-              <span class="title-text">农业大数据统计展示系统</span>
-              <dv-decoration-6
-                class="dv-dec-6"
-                :reverse="true"
-                :color="['#50e3c2', '#67a1e5']"
-              />
-            </div>
-            <dv-decoration-8
-              class="dv-dec-8"
-              :reverse="true"
-              :color="decorationColor"
-            />
-          </div>
-          <dv-decoration-10 class="dv-dec-10-s" />
-        </div>
-
-        <!-- 第二行 -->
-        <div class="d-flex jc-between px-2">
-          <div class="d-flex aside-width">
-            <div class="react-left ml-4 react-l-s">
-              <span class="react-left"></span>
-              <span class="text">待展示文字1</span>
-            </div>
-            <div class="react-left ml-3">
-              <span class="text">待展示文字2</span>
-            </div>
-          </div>
-          <div class="d-flex aside-width">
-            <div class="react-right bg-color-blue mr-3">
-              <span class="text fw-b">内蒙古</span>
-            </div>
-            <div class="react-right mr-4 react-l-s">
-              <span class="react-after"></span>
-              <span class="text"
-                >{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span
-              >
-            </div>
-          </div>
-        </div>
+        <top />
 
         <div class="body-box">
           <!-- 第三行数据 -->
@@ -92,15 +49,16 @@
 </template>
 
 <script>
-import drawMixin from "../utils/drawMixin";
-import { formatTime } from '../utils/index.js'
-import centerLeft1 from './centerLeft1'
-import centerLeft2 from './centerLeft2'
-import centerRight1 from './centerRight1'
-import centerRight2 from './centerRight2'
-import center from './center'
-import bottomLeft from './bottomLeft'
-import bottomRight from './bottomRight'
+import drawMixin from "@/utils/drawMixin";
+import { formatTime } from '@/utils/index.js'
+import centerLeft1 from '@/views/components/index/centerLeft1'
+import centerLeft2 from '@/views/components/index/centerLeft2'
+import centerRight1 from '@/views/components/index/centerRight1'
+import centerRight2 from '@/views/components/index/centerRight2'
+import center from '@/views/components/index/center'
+import bottomLeft from '@/views/components/index/bottomLeft'
+import bottomRight from '@/views/components/index/bottomRight'
+import top from "@/views/components/top";
 
 export default {
   mixins: [ drawMixin ],
@@ -122,7 +80,8 @@ export default {
     centerRight2,
     center,
     bottomLeft,
-    bottomRight
+    bottomRight,
+    top
   },
   mounted() {
     this.timeFn()

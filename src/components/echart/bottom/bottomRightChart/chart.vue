@@ -22,10 +22,10 @@ export default {
     Echart,
   },
   props: {
-    cdata: {
-      type: Array,
-      default: () => [],
-    },
+    // cdata: {
+    //   type: Array,
+    //   default: () => [],
+    // },
   },
   watch: {
     cdata: {

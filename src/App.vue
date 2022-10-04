@@ -10,7 +10,5 @@
   height: 100vh;
   background-color: #020308;
   overflow: hidden;
-
-
 }
 </style>
