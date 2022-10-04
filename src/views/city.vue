@@ -38,7 +38,7 @@
               <bottomLeft />
             </dv-border-box-13>
             <dv-border-box-12>
-              <bottomRight />
+              <city />
             </dv-border-box-12>
           </div>
         </div>
@@ -56,7 +56,7 @@ import centerRight1 from '@/views/components/index/centerRight1'
 import centerRight2 from '@/views/components/index/centerRight2'
 import center from '@/views/components/index/center'
 import bottomLeft from '@/views/components/index/bottomLeft'
-import bottomRight from '@/views/components/index/bottomRight'
+import city from '@/views/components/index/city'
 import top from "@/views/components/top";
 
 export default {
@@ -79,8 +79,9 @@ export default {
     centerRight2,
     center,
     bottomLeft,
-    bottomRight,
-    top
+    // bottomRight,
+    top,
+    city
   },
   mounted() {
     this.timeFn()

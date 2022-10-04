@@ -1,17 +1,17 @@
 <template>
   <div>
     <Echart
-      id="centreLeft2Chart"
-      ref="centreLeft2ChartRef"
-      :options="options"
-      height="460px"
-      width="100%"
+        id="cityMapChart"
+        ref="cityMapChartRef"
+        :options="options"
+        height="460px"
+        width="100%"
     ></Echart>
   </div>
 </template>
-
 <script>
 import Echart from '@/common/echart';
+
 export default {
   data() {
     return {
@@ -21,28 +21,9 @@ export default {
   components: {
     Echart,
   },
-  props: {
-    // cdata: {
-    //   type: Array,
-    //   default: () => [],
-    // },
-  },
   watch: {
     cdata: {
       handler(newData) {
-        let convertData = function (data) {
-          let scatterData = [];
-          for (var i = 0; i < data.length; i++) {
-            var geoCoord = geoCoordMap[data[i].name];
-            if (geoCoord) {
-              scatterData.push({
-                name: data[i].name,
-                value: geoCoord.concat(data[i].value),
-              });
-            }
-          }
-          return scatterData;
-        };
         this.options = {
           showLegendSymbol: true,
           tooltip: {
@@ -79,7 +60,7 @@ export default {
             zoom: 1.2,
             top: '10%',
             left: '16%',
-            map: '内蒙古',
+            map: '通辽',
             roam: false,
             itemStyle: {
               normal: {
@@ -99,7 +80,7 @@ export default {
               type: 'map',
               aspectScale: 0.85, //长宽比
               zoom: 1.2,
-              mapType: '内蒙古', // 自定义扩展图表类型
+              mapType: '通辽', // 自定义扩展图表类型
               top: '10%',
               left: '16%',
               itemStyle: {
@@ -158,90 +139,9 @@ export default {
             },
           ],
         };
-        // 重新选择区域
-        this.handleMapRandomSelect();
       },
       immediate: true,
       deep: true,
-    },
-  },
-  methods: {
-    // 开启定时器
-    startInterval() {
-      const _self = this;
-      // 应通过接口获取配置时间，暂时写死5s
-      const time = 2000;
-      if (this.intervalId !== null) {
-        clearInterval(this.intervalId);
-      }
-      this.intervalId = setInterval(() => {
-        _self.reSelectMapRandomArea();
-      }, time);
-    },
-    // 重新随机选中地图区域
-    reSelectMapRandomArea() {
-      const length = 9;
-      this.$nextTick(() => {
-        try {
-          const map = this.$refs.centreLeft2ChartRef.chart;
-          let index = Math.floor(Math.random() * length);
-          while (index === this.preSelectMapIndex || index >= length) {
-            index = Math.floor(Math.random() * length);
-          }
-          map.dispatchAction({
-            type: 'mapUnSelect',
-            seriesIndex: 0,
-            dataIndex: this.preSelectMapIndex,
-          });
-          map.dispatchAction({
-            type: 'showTip',
-            seriesIndex: 0,
-            dataIndex: index,
-          });
-          map.dispatchAction({
-            type: 'mapSelect',
-            seriesIndex: 0,
-            dataIndex: index,
-          });
-          this.preSelectMapIndex = index;
-        } catch (error) {
-          console.log(error)
-        }
-      });
-    },
-    handleMapRandomSelect() {
-      this.$nextTick(() => {
-        try {
-          const map = this.$refs.centreLeft2ChartRef.chart;
-          const _self = this;
-          setTimeout(() => {
-            _self.reSelectMapRandomArea();
-          }, 0);
-          // 移入区域，清除定时器、取消之前选中并选中当前
-          map.on('mouseover', function (params) {
-            clearInterval(_self.intervalId);
-            map.dispatchAction({
-              type: 'mapUnSelect',
-              seriesIndex: 0,
-              dataIndex: _self.preSelectMapIndex,
-            });
-            map.dispatchAction({
-              type: 'mapSelect',
-              seriesIndex: 0,
-              dataIndex: params.dataIndex,
-            });
-            _self.preSelectMapIndex = params.dataIndex;
-          });
-          // 移出区域重新随机选中地图区域，并开启定时器
-          map.on('globalout', function () {
-            _self.reSelectMapRandomArea();
-            _self.startInterval();
-          });
-          this.startInterval();
-        } catch (error) {
-          console.log(error)
-        }
-      });
     },
   },
 };
