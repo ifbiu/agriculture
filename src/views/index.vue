@@ -24,7 +24,7 @@ import centerRight1 from '@/views/components/index/centerRight1'
 import centerRight2 from '@/views/components/index/centerRight2'
 import center from '@/views/components/index/center'
 import bottomLeft from '@/views/components/index/bottomLeft'
-import bottomRight from '@/views/components/index/bottomRight'
+import bottomRight from '@/views/components/index/province'
 import top from "@/views/components/top";
 
 export default {

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import cityMapChart from "@/components/echart/bottom/cityMapChart";
+import cityMapChart from "@/components/echart/module/cityMapChart";
 export default {
   components: {
     cityMapChart
