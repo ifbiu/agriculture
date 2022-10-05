@@ -55,6 +55,8 @@ export default {
   mixins: [ drawMixin ],
   data(){
     return{
+      timing: null,
+      loading: true,
       dateDay: null,
       dateYear: null,
       dateWeek: null,
@@ -64,6 +66,9 @@ export default {
   },
   mounted() {
     this.timeFn()
+  },
+  beforeDestroy() {
+    clearInterval(this.timing)
   },
   methods:{
     timeFn() {

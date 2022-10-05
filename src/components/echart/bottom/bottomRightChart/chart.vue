@@ -4,7 +4,7 @@
       id="centreLeft2Chart"
       ref="centreLeft2ChartRef"
       :options="options"
-      height="460px"
+      height="760px"
       width="100%"
     ></Echart>
   </div>
@@ -242,6 +242,12 @@ export default {
           console.log(error)
         }
       });
+    },
+    showName(event) {
+      // this在方法里指向当前Vue实例
+      // console.log(this.name);
+      // event是原生DOM事件
+      console.log(event)
     },
   },
 };

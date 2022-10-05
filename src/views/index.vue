@@ -4,8 +4,6 @@
       <dv-loading v-if="loading">Loading...</dv-loading>
       <div v-else class="host-body">
         <top/>
-
-
         <!-- 第四行数据 -->
         <div class="bottom-box">
           <dv-border-box-12>
@@ -33,13 +31,7 @@ export default {
   mixins: [drawMixin],
   data() {
     return {
-      timing: null,
       loading: true,
-      dateDay: null,
-      dateYear: null,
-      dateWeek: null,
-      weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
-      decorationColor: ['#568aea', '#000000']
     }
   },
   components: {
@@ -53,20 +45,9 @@ export default {
     top
   },
   mounted() {
-    this.timeFn()
     this.cancelLoading()
   },
-  beforeDestroy() {
-    clearInterval(this.timing)
-  },
   methods: {
-    timeFn() {
-      this.timing = setInterval(() => {
-        this.dateDay = formatTime(new Date(), 'HH: mm: ss')
-        this.dateYear = formatTime(new Date(), 'yyyy-MM-dd')
-        this.dateWeek = this.weekday[new Date().getDay()]
-      }, 1000)
-    },
     cancelLoading() {
       setTimeout(() => {
         this.loading = false
