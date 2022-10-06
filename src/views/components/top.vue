@@ -34,13 +34,11 @@
       </div>
       <div class="d-flex aside-width">
         <div class="react-right bg-color-blue mr-3">
-          <span class="text fw-b">内蒙古</span>
+          <span class="text fw-b">{{title}}</span>
         </div>
         <div class="react-right mr-4 react-l-s">
           <span class="react-after"></span>
-          <span class="text"
-          >{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span
-          >
+          <span class="text">{{ dateYear }} {{ dateWeek }} {{ dateDay }}</span>
         </div>
       </div>
     </div>
@@ -49,6 +47,7 @@
 
 <script>
 import { formatTime } from '@/utils'
+import { judgeRoute } from '@/utils'
 import drawMixin from "@/utils/drawMixin";
 
 export default {
@@ -62,6 +61,7 @@ export default {
       dateWeek: null,
       decorationColor: ['#568aea', '#000000'],
       weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+      title:judgeRoute(this.$route.query['city']),
     }
   },
   mounted() {

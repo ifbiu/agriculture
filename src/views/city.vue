@@ -73,7 +73,6 @@ export default {
     centerRight2,
     center,
     bottomLeft,
-    // bottomRight,
     top,
     city
   },

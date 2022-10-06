@@ -11,11 +11,13 @@
 </template>
 <script>
 import Echart from '@/common/echart';
+import { judgeRoute } from '@/utils'
 
 export default {
   data() {
     return {
       options: {},
+      title:judgeRoute(this.$route.query['city'])
     };
   },
   components: {
@@ -60,7 +62,7 @@ export default {
             zoom: 1.2,
             top: '10%',
             left: '16%',
-            map: '通辽',
+            map: this.title,
             roam: false,
             itemStyle: {
               normal: {
@@ -80,7 +82,7 @@ export default {
               type: 'map',
               aspectScale: 0.85, //长宽比
               zoom: 1.2,
-              mapType: '通辽', // 自定义扩展图表类型
+              mapType: this.title, // 自定义扩展图表类型
               top: '10%',
               left: '16%',
               itemStyle: {

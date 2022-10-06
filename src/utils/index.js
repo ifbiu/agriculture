@@ -49,3 +49,49 @@ export function formatTime(time, fmt) {
     return fmt;
   }
 }
+
+export function judgeRoute(city){
+  let title = ""
+  switch (city){
+    case "chifeng":
+      title = "赤峰"
+      break
+    case "huhehaote":
+      title = "呼和浩特"
+      break
+    case "tongliao":
+      title = "通辽"
+      break
+    case "hulunbeier":
+      title = "呼伦贝尔"
+      break
+    case "wulanchabu":
+      title = "乌兰察布"
+      break
+    case "xinganmeng":
+      title = "兴安盟"
+      break
+    case "eerduosi":
+      title = "鄂尔多斯"
+      break
+    case "xilinguole":
+      title = "锡林郭勒"
+      break
+    case "baotou":
+      title = "包头"
+      break
+    case "bayannaoer":
+      title = "巴彦淖尔"
+      break
+    case "wuhai":
+      title = "乌海"
+      break
+    case "alashan":
+      title = "阿拉善"
+      break
+
+    default:
+      title = "内蒙古"
+  }
+  return title;
+}
