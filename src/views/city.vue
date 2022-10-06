@@ -7,14 +7,14 @@
         <div class="body-box">
           <!-- 第三行数据 -->
           <div class="content-box">
+<!--            <div>-->
+<!--              <dv-border-box-12>-->
+<!--                <centerLeft1 />-->
+<!--              </dv-border-box-12>-->
+<!--            </div>-->
             <div>
               <dv-border-box-12>
-                <centerLeft1 />
-              </dv-border-box-12>
-            </div>
-            <div>
-              <dv-border-box-12>
-                <centerLeft2 />
+                <weather />
               </dv-border-box-12>
             </div>
             <!-- 中间 -->
@@ -55,6 +55,7 @@ import centerLeft2 from '@/views/components/index/centerLeft2'
 import centerRight1 from '@/views/components/index/centerRight1'
 import centerRight2 from '@/views/components/index/centerRight2'
 import center from '@/views/components/index/center'
+import weather from '@/views/components/index/weather'
 import bottomLeft from '@/views/components/index/bottomLeft'
 import city from '@/views/components/index/city'
 import top from "@/views/components/top";
@@ -73,6 +74,7 @@ export default {
     centerRight2,
     center,
     bottomLeft,
+    weather,
     top,
     city
   },
