@@ -95,3 +95,13 @@ export function judgeRoute(city){
   }
   return title;
 }
+
+// 把获取到的数据通过调用JSON.parse()方法转换成对象
+export const isJSON = s => {
+  try {
+    JSON.parse(s)
+  } catch (e) {
+    return false
+  }
+  return true
+}

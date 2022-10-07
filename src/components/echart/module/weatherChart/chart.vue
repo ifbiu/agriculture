@@ -3,7 +3,7 @@
     <Echart
         :options="options"
         id="weatherChart"
-        height="480px"
+        height="300px"
         width="100%"
     ></Echart>
   </div>
@@ -11,10 +11,12 @@
 
 <script>
 import Echart from '@/common/echart'
+import {getWeather} from '@/request'
 export default {
   data () {
     return {
       options: {},
+      weatherDataList:[],
     };
   },
   components: {
@@ -26,8 +28,22 @@ export default {
       default: () => ({})
     },
   },
+  mounted() {
+    this.getWeatherList()
+  },
+  methods:{
+    async getWeatherList(){
+      const res = await getWeather({})
+      console.log(res)
+      if (res.code==="200"){
+        this.weatherDataList = res.daily
+      }else{
+        console.log('request error')
+      }
+    }
+  },
   watch: {
-    cdata: {
+    weatherDataList: {
       handler (newData) {
         this.options = {
           grid: {
@@ -73,7 +89,9 @@ export default {
               nameTextStyle: {
 
               },
-              data: ["25日", "26日", "27日", "28日", "29日", "30日", "31日"]
+              data: this.weatherDataList.map(res=>{
+                return res.fxDate
+              })
             },
             // 星期
             {
@@ -104,7 +122,9 @@ export default {
                 fontWeight: 'bold',
                 fontSize: 19
               },
-              data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+              data: this.weatherDataList.map(res=>{
+                return res.weekdayFormat
+              }),
             },
             // 天气图标
             {
@@ -128,15 +148,14 @@ export default {
                   0: {
                     backgroundColor: {
                       // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[0]] + '.png')
-                      image: 'https://d.scggqx.com/forecast/img/小雨.png'
+                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[0].iconDay+'.svg'
                     },
                     height: 40,
-                    width: 40
+                    width: 40,
                   },
                   1: {
                     backgroundColor: {
-                      // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[1]] + '.png')
-                      image: 'https://d.scggqx.com/forecast/img/小雨.png'
+                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[1].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
@@ -144,7 +163,7 @@ export default {
                   2: {
                     backgroundColor: {
                       // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[2]] + '.png')
-                      image: 'https://d.scggqx.com/forecast/img/阴.png'
+                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[2].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
@@ -152,7 +171,7 @@ export default {
                   3: {
                     backgroundColor: {
                       // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[3]] + '.png')
-                      image: 'https://d.scggqx.com/forecast/img/小雨.png'
+                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[3].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
@@ -160,7 +179,7 @@ export default {
                   4: {
                     backgroundColor: {
                       // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[4]] + '.png')
-                      image: 'https://d.scggqx.com/forecast/img/多云.png'
+                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[4].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
@@ -168,7 +187,7 @@ export default {
                   5: {
                     backgroundColor: {
                       // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[5]] + '.png')
-                      image: 'https://d.scggqx.com/forecast/img/小雨.png'
+                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[5].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
@@ -176,7 +195,7 @@ export default {
                   6: {
                     backgroundColor: {
                       // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[6]] + '.png')
-                      image: 'https://d.scggqx.com/forecast/img/小雨.png'
+                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[6].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
@@ -194,7 +213,9 @@ export default {
                 fontSize: 19
               },
               // data: this.weatherdata.weather
-              data: ["小雨", "小雨", "阴", "小雨", "多云", "小雨", "小雨"]
+              data: this.weatherDataList.map(res=>{
+                return res.textDay
+              })
             }
           ],
           yAxis: {
@@ -209,7 +230,9 @@ export default {
             {
               name: '最高气温',
               type: 'line',
-              data: ["16.3", "16.2", "17.6", "14.2", "17.6", "15.7", "14.3"],
+              data: this.weatherDataList.map(res=>{
+                return res.tempMax
+              }),
               symbol: 'emptyCircle',
               symbolSize: 10,
               showSymbol: true,
@@ -237,7 +260,9 @@ export default {
             {
               name: '最低气温',
               type: 'line',
-              data: ["13.4", "12.8", "13.5", "12.5", "12.4", "13.2", "13"],
+              data: this.weatherDataList.map(res=>{
+                return res.tempMin
+              }),
               symbol: 'emptyCircle',
               symbolSize: 10,
               showSymbol: true,
@@ -249,7 +274,7 @@ export default {
               },
               label: {
                 show: true,
-                position: 'bottom',
+                position: 'top',
                 // color: 'white',
                 formatter: '{c} °C'
               },
@@ -265,7 +290,7 @@ export default {
           ]
         }
       },
-      immediate: true,
+      immediate: false,
       deep: true
     },
   },
