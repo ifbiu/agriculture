@@ -12,6 +12,7 @@
 <script>
 import Echart from '@/common/echart'
 import {getWeather} from '@/request'
+import {weatherIconsURL} from "@/request/config";
 export default {
   data () {
     return {
@@ -33,7 +34,9 @@ export default {
   },
   methods:{
     async getWeatherList(){
-      const res = await getWeather({})
+      const res = await getWeather({
+        city:this.$route.query['city']
+      })
       console.log(res)
       if (res.code==="200"){
         this.weatherDataList = res.daily
@@ -147,55 +150,49 @@ export default {
                 rich: {
                   0: {
                     backgroundColor: {
-                      // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[0]] + '.png')
-                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[0].iconDay+'.svg'
+                      image: weatherIconsURL+this.weatherDataList[0].iconDay+'.svg',
                     },
                     height: 40,
                     width: 40,
                   },
                   1: {
                     backgroundColor: {
-                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[1].iconDay+'.svg'
+                      image: weatherIconsURL+this.weatherDataList[1].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
                   },
                   2: {
                     backgroundColor: {
-                      // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[2]] + '.png')
-                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[2].iconDay+'.svg'
+                      image: weatherIconsURL+this.weatherDataList[2].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
                   },
                   3: {
                     backgroundColor: {
-                      // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[3]] + '.png')
-                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[3].iconDay+'.svg'
+                      image: weatherIconsURL+this.weatherDataList[3].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
                   },
                   4: {
                     backgroundColor: {
-                      // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[4]] + '.png')
-                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[4].iconDay+'.svg'
+                      image: weatherIconsURL+this.weatherDataList[4].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
                   },
                   5: {
                     backgroundColor: {
-                      // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[5]] + '.png')
-                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[5].iconDay+'.svg'
+                      image: weatherIconsURL+this.weatherDataList[5].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
                   },
                   6: {
                     backgroundColor: {
-                      // image: require('@/assets/weather_icon/' + this.weatherIconDic[this.weatherdata.weather[6]] + '.png')
-                      image: 'https://candide.oss-cn-beijing.aliyuncs.com/agriclture/icons/'+this.weatherDataList[6].iconDay+'.svg'
+                      image: weatherIconsURL+this.weatherDataList[6].iconDay+'.svg'
                     },
                     height: 40,
                     width: 40
@@ -297,6 +294,5 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
 </style>

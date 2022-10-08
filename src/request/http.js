@@ -1,9 +1,10 @@
 import axios from 'axios'
-import config from './config'
+import config, {weatherIconsURL} from './config'
 import { isJSON } from '@/utils'
 
 const instance = axios.create({
-    baseURL: config.baseURL
+    baseURL: config.baseURL,
+    weatherIconsURL: config.weatherIconsURL,
 })
 
 instance.defaults.transformRequest = [

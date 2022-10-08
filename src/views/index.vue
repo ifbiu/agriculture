@@ -17,7 +17,6 @@
 
 <script>
 import drawMixin from "@/utils/drawMixin";
-import {formatTime} from '@/utils/index.js'
 import centerLeft1 from '@/views/components/index/centerLeft1'
 import centerLeft2 from '@/views/components/index/centerLeft2'
 import centerRight1 from '@/views/components/index/centerRight1'
