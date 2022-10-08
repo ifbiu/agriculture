@@ -2,7 +2,7 @@
   <div>
     <Echart
       :options="options"
-      id="bottomLeftChart"
+      id="gdpChart"
       height="480px"
       width="100%"
     ></Echart>
@@ -64,6 +64,10 @@ export default {
             },
             axisTick: {
               show: false
+            },
+            axisLabel: {
+              interval:0,
+              rotate:40
             }
           },
           yAxis: [
@@ -106,6 +110,9 @@ export default {
                 }
               },
               data: this.cdata.map(res=>{
+                if (res.gdp_incr==0){
+                  return 0
+                }
                 return res.gdp_incr
               })
             },

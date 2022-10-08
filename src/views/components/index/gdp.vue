@@ -10,17 +10,17 @@
         </div>
       </div>
       <div>
-        <BottomLeftChart />
+        <gdpChart />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BottomLeftChart from '@/components/echart/module/gdpChart'
+import gdpChart from '@/components/echart/module/gdpChart'
 export default {
   components: {
-    BottomLeftChart
+    gdpChart
   }
 }
 </script>
