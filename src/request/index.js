@@ -26,3 +26,4 @@ export function post (url, params) {
 }
 
 export const getWeather = data => get('/weather', data)
+export const getYearBooks = data => get('/getYearBooks', data)

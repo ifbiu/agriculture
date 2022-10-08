@@ -6,7 +6,7 @@
           <icon name="chart-bar" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">数据统计图</span>
+          <span class="fs-xl text mx-2">生产总值</span>
         </div>
       </div>
       <div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import BottomLeftChart from '@/components/echart/bottom/bottomLeftChart'
+import BottomLeftChart from '@/components/echart/module/gdpChart'
 export default {
   components: {
     BottomLeftChart

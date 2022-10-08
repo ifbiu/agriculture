@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- 年度开工率 -->
     <Echart
       :options="options"
       id="bottomLeftChart"
@@ -23,8 +22,8 @@ export default {
   },
   props: {
     cdata: {
-      type: Object,
-      default: () => ({})
+      type: Array,
+      default: []
     },
   },
   watch: {
@@ -43,7 +42,7 @@ export default {
             }
           },
           legend: {
-            data: ["已贯通", "计划贯通", "贯通率"],
+            data: ["今年生产总值", "去年生产总值", "增长率"],
             textStyle: {
               color: "#B4B4B4"
             },
@@ -55,7 +54,9 @@ export default {
             y: "4%"
           },
           xAxis: {
-            data: newData.category,
+            data: this.cdata.map(res=>{
+              return res.county
+            }),
             axisLine: {
               lineStyle: {
                 color: "#B4B4B4"
@@ -92,7 +93,7 @@ export default {
           ],
           series: [
             {
-              name: "贯通率",
+              name: "增长率",
               type: "line",
               smooth: true,
               showAllSymbol: true,
@@ -104,10 +105,12 @@ export default {
                   color: "#F02FC2"
                 }
               },
-              data: newData.rateData
+              data: this.cdata.map(res=>{
+                return res.gdp_incr
+              })
             },
             {
-              name: "已贯通",
+              name: "去年生产总值",
               type: "bar",
               barWidth: 10,
               itemStyle: {
@@ -119,10 +122,12 @@ export default {
                   ])
                 }
               },
-              data: newData.barData
+              data: this.cdata.map(res=>{
+                return Math.trunc(res.gdp/(1+(res.gdp_incr/100)))
+              })
             },
             {
-              name: "计划贯通",
+              name: "今年生产总值",
               type: "bar",
               barGap: "-100%",
               barWidth: 10,
@@ -137,12 +142,14 @@ export default {
                 }
               },
               z: -12,
-              data: newData.lineData
+              data: this.cdata.map(res=>{
+                return res.gdp
+              })
             }
           ]
         }
       },
-      immediate: true,
+      immediate: false,
       deep: true
     },
   },

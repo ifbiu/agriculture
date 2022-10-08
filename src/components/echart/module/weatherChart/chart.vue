@@ -37,7 +37,6 @@ export default {
       const res = await getWeather({
         city:this.$route.query['city']
       })
-      console.log(res)
       if (res.code==="200"){
         this.weatherDataList = res.daily
       }else{

@@ -35,7 +35,7 @@
           <!-- 第四行数据 -->
           <div class="bottom-box">
             <dv-border-box-13>
-              <bottomLeft />
+              <gdp />
             </dv-border-box-13>
             <dv-border-box-12>
               <city />
@@ -56,7 +56,7 @@ import centerRight1 from '@/views/components/index/centerRight1'
 import centerRight2 from '@/views/components/index/centerRight2'
 import center from '@/views/components/index/center'
 import weather from '@/views/components/index/weather'
-import bottomLeft from '@/views/components/index/bottomLeft'
+import gdp from '@/views/components/index/gdp'
 import city from '@/views/components/index/city'
 import top from "@/views/components/top";
 
@@ -73,7 +73,7 @@ export default {
     centerRight1,
     centerRight2,
     center,
-    bottomLeft,
+    gdp,
     weather,
     top,
     city

@@ -22,7 +22,7 @@ import centerLeft2 from '@/views/components/index/centerLeft2'
 import centerRight1 from '@/views/components/index/centerRight1'
 import centerRight2 from '@/views/components/index/centerRight2'
 import center from '@/views/components/index/center'
-import bottomLeft from '@/views/components/index/bottomLeft'
+import gdp from '@/views/components/index/gdp'
 import bottomRight from '@/views/components/index/province'
 import top from "@/views/components/top";
 
@@ -39,7 +39,7 @@ export default {
     centerRight1,
     centerRight2,
     center,
-    bottomLeft,
+    gdp,
     bottomRight,
     top
   },
