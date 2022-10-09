@@ -56,9 +56,9 @@ export default {
     return {
       titleItem: [
         {
-          title: '今年累计任务建次数',
+          title: '总耕地面积',
           number: {
-            number: [120],
+            number: [8660],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
@@ -68,9 +68,9 @@ export default {
           }
         },
         {
-          title: '本月累计任务次数',
+          title: '总农作物播种面积',
           number: {
-            number: [18],
+            number: [904],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
@@ -80,19 +80,7 @@ export default {
           }
         },
         {
-          title: '今日累计任务次数',
-          number: {
-            number: [2],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        },
-        {
-          title: '今年失败任务次数',
+          title: '总粮食产量',
           number: {
             number: [14],
             toFixed: 1,
@@ -104,7 +92,7 @@ export default {
           }
         },
         {
-          title: '今年成功任务次数',
+          title: '总油料产量',
           number: {
             number: [106],
             toFixed: 1,
@@ -115,18 +103,6 @@ export default {
             }
           }
         },
-        {
-          title: '今年达标任务个数',
-          number: {
-            number: [100],
-            toFixed: 1,
-            textAlign: 'left',
-            content: '{nt}',
-            style: {
-              fontSize: 26
-            }
-          }
-        }
       ],
       ranking: {
         data: [
@@ -240,7 +216,7 @@ export default {
       border-radius: 6px;
       padding-top: 8px;
       margin-top: 8px;
-      width: 32%;
+      width: 49%;
       height: 70px;
       .dv-dig-flop {
         width: 150px;
