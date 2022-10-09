@@ -22,10 +22,10 @@ export default {
     Echart,
   },
   props: {
-    // cdata: {
-    //   type: Array,
-    //   default: () => [],
-    // },
+    cdata: {
+      type: Array,
+      default: () => [],
+    },
   },
   watch: {
     cdata: {
@@ -95,7 +95,7 @@ export default {
           },
           series: [
             {
-              name: '相关指数',
+              name: '人口数',
               type: 'map',
               aspectScale: 0.85, //长宽比
               zoom: 1.2,
