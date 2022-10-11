@@ -7,7 +7,7 @@
         <!-- 第四行数据 -->
         <div class="bottom-box">
           <dv-border-box-12>
-            <bottomRight/>
+            <province/>
           </dv-border-box-12>
         </div>
       </div>
@@ -23,7 +23,7 @@ import centerRight1 from '@/views/components/index/centerRight1'
 import centerRight2 from '@/views/components/index/centerRight2'
 import center from '@/views/components/index/center'
 import gdp from '@/views/components/index/gdp'
-import bottomRight from '@/views/components/index/province'
+import province from '@/views/components/index/province'
 import top from "@/views/components/top";
 
 export default {
@@ -40,7 +40,7 @@ export default {
     centerRight2,
     center,
     gdp,
-    bottomRight,
+    province,
     top
   },
   mounted() {

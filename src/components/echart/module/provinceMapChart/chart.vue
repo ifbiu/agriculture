@@ -1,8 +1,8 @@
 <template>
   <div>
     <Echart
-      id="centreLeft2Chart"
-      ref="centreLeft2ChartRef"
+      id="provinceMapChart"
+      ref="provinceMapChartRef"
       :options="options"
       height="760px"
       width="100%"
@@ -183,7 +183,7 @@ export default {
       const length = 9;
       this.$nextTick(() => {
         try {
-          const map = this.$refs.centreLeft2ChartRef.chart;
+          const map = this.$refs.provinceMapChartRef.chart;
           let index = Math.floor(Math.random() * length);
           while (index === this.preSelectMapIndex || index >= length) {
             index = Math.floor(Math.random() * length);
@@ -212,7 +212,7 @@ export default {
     handleMapRandomSelect() {
       this.$nextTick(() => {
         try {
-          const map = this.$refs.centreLeft2ChartRef.chart;
+          const map = this.$refs.provinceMapChartRef.chart;
           const _self = this;
           setTimeout(() => {
             _self.reSelectMapRandomArea();

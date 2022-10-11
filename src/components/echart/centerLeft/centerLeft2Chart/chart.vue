@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Echart id="centreLeft2Chart" ref="centreLeft2ChartRef" :options="options" height="360px" width="330px"></Echart>
+    <Echart id="provinceMapChart" ref="provinceMapChartRef" :options="options" height="360px" width="330px"></Echart>
   </div>
 </template>
 

@@ -18,14 +18,14 @@
         </div>
       </div>
       <div>
-        <BottomRightChart />
+        <ProvinceMapChart />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BottomRightChart from "@/components/echart/module/provinceMapChart";
+import ProvinceMapChart from "@/components/echart/module/provinceMapChart";
 export default {
   data(){
     return{
@@ -46,7 +46,7 @@ export default {
     }
   },
   components: {
-    BottomRightChart
+    ProvinceMapChart
   }
 };
 </script>
