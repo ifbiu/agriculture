@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Chart />
+    <Chart :cdata="cdata" />
   </div>
 </template>
 
@@ -10,9 +10,14 @@ export default {
   data () {
     return {
       drawTiming: null,
-      cdata: {
-      }
+      cdata: []
     }
+  },
+  props: {
+    cdata: {
+      type: Array,
+      default: () => [],
+    },
   },
   components: {
     Chart,

@@ -13,7 +13,7 @@
         </div>
       </div>
       <div>
-        <cityMapChart />
+        <cityMapChart :cdata="cdata"/>
       </div>
     </div>
   </div>
@@ -22,6 +22,17 @@
 <script>
 import cityMapChart from "@/components/echart/module/cityMapChart";
 export default {
+  data () {
+    return {
+      cdata: [],
+    }
+  },
+  props: {
+    cdata: {
+      type: Array,
+      default: () => [],
+    },
+  },
   components: {
     cityMapChart
   }

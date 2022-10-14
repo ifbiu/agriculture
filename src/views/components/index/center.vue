@@ -20,7 +20,7 @@
         <span>
           <icon name="chart-pie" class="text-icon"></icon>
         </span>
-        <span class="fs-xl text mx-2 mb-1 pl-3">内蒙古盟市人口排行</span>
+        <span class="fs-xl text mx-2 mb-1 pl-3">{{city}}人口排行</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
       </div>
       <div class="percent">
@@ -49,9 +49,16 @@
 </template>
 
 <script>
-import CenterChart from '@/components/echart/center/centerChartRate'
+import CenterChart from '@/components/echart/module/centerChartRate'
+import {judgeRoute} from "@/utils";
 
 export default {
+  props: {
+    cdata: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       titleItem: [
@@ -105,56 +112,7 @@ export default {
         },
       ],
       ranking: {
-        data: [
-          {
-            name: '赤峰',
-            value: 401.91
-          },
-          {
-            name: '呼和浩特',
-            value: 349.56
-          },
-          {
-            name: '通辽',
-            value: 285.31
-          },
-          {
-            name: '包头',
-            value: 271.78
-          },
-          {
-            name: '呼伦贝尔',
-            value: 221.39
-          },
-          {
-            name: '鄂尔多斯',
-            value: 216.84
-          },
-          {
-            name: '乌兰察布',
-            value: 165.95
-          },
-          {
-            name: '巴彦淖尔',
-            value: 152.8
-          },
-          {
-            name: '兴安盟',
-            value: 140.54
-          },
-          {
-            name: '锡林郭勒',
-            value: 111.54
-          },
-          {
-            name: '乌海',
-            value: 55.81
-          },
-          {
-            name: '阿拉善',
-            value: 26.54
-          }
-        ],
+        data: this.cdata,
         carousel: 'single',
         unit: '人'
       },
@@ -194,7 +152,8 @@ export default {
             }
           }
         }
-      ]
+      ],
+      city:judgeRoute(this.$route.query['city'])
     }
   },
   components: {

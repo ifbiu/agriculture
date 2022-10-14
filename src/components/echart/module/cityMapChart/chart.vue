@@ -23,9 +23,28 @@ export default {
   components: {
     Echart,
   },
+  props: {
+    cdata: {
+      type: Array,
+      default: () => [],
+    },
+  },
   watch: {
     cdata: {
       handler(newData) {
+        let convertData = function (data) {
+          let scatterData = [];
+          for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+              scatterData.push({
+                name: data[i].name,
+                value: geoCoord.concat(data[i].value),
+              });
+            }
+          }
+          return scatterData;
+        };
         this.options = {
           showLegendSymbol: true,
           tooltip: {
@@ -78,7 +97,7 @@ export default {
           },
           series: [
             {
-              name: '相关指数',
+              name: '人口数',
               type: 'map',
               aspectScale: 0.85, //长宽比
               zoom: 1.2,

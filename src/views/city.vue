@@ -19,7 +19,7 @@
             </div>
             <!-- 中间 -->
             <div>
-              <center />
+              <center :cdata="cdata" />
             </div>
             <!-- 中间 -->
             <div>
@@ -38,7 +38,7 @@
               <gdp />
             </dv-border-box-13>
             <dv-border-box-12>
-              <city />
+              <city :cdata="cdata" />
             </dv-border-box-12>
           </div>
         </div>
@@ -59,12 +59,14 @@ import weather from '@/views/components/index/weather'
 import gdp from '@/views/components/index/gdp'
 import city from '@/views/components/index/city'
 import top from "@/views/components/top";
+import {getPopulation} from "@/request";
 
 export default {
   mixins: [ drawMixin ],
   data() {
     return {
       loading: true,
+      cdata:[],
     }
   },
   components: {
@@ -79,6 +81,7 @@ export default {
     city
   },
   mounted() {
+    this.getPopulationList()
     this.cancelLoading()
   },
   methods: {
@@ -86,6 +89,24 @@ export default {
       setTimeout(() => {
         this.loading = false
       }, 500)
+    },
+    async getPopulationList(){
+      const res = await getPopulation({
+        city:this.$route.query['city']
+      })
+      if (res.code==="200"){
+        for (let i = 0; i < res.data.length; i++) {
+          this.cdata = res.data
+        }
+        this.cdata.map(res=>{
+          res.name=res.county
+          res.value=res.population
+        })
+        console.log(this.cdata)
+
+      }else{
+        console.log('request error')
+      }
     }
   }
 }

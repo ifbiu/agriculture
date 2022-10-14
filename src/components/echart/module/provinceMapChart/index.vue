@@ -41,7 +41,6 @@ export default {
           res.name=res.city
           res.value=res.population
         })
-        console.log(this.cdata)
 
       }else{
         console.log('request error')
