@@ -51,12 +51,17 @@
 <script>
 import CenterChart from '@/components/echart/module/centerChartRate'
 import {judgeRoute} from "@/utils";
+import {getFourData} from "@/request";
 
 export default {
   props: {
     cdata: {
       type: Array,
       default: () => [],
+    },
+    fourData: {
+      type: Object,
+      default: () => {},
     },
   },
   data() {
@@ -65,7 +70,7 @@ export default {
         {
           title: '总耕地面积',
           number: {
-            number: [8660],
+            number: [this.fourData.cultivated_area_sum],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
@@ -77,7 +82,7 @@ export default {
         {
           title: '总农作物播种面积',
           number: {
-            number: [904],
+            number: [this.fourData.sown_area_sum],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
@@ -89,7 +94,7 @@ export default {
         {
           title: '总粮食产量',
           number: {
-            number: [14],
+            number: [this.fourData.grain_yield_sum],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
@@ -101,7 +106,7 @@ export default {
         {
           title: '总油料产量',
           number: {
-            number: [106],
+            number: [this.fourData.oil_production_sum],
             toFixed: 1,
             textAlign: 'left',
             content: '{nt}',
@@ -153,7 +158,7 @@ export default {
           }
         }
       ],
-      city:judgeRoute(this.$route.query['city'])
+      city:judgeRoute(this.$route.query['city']),
     }
   },
   components: {

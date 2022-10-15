@@ -28,3 +28,4 @@ export function post (url, params) {
 export const getWeather = data => get('/weather', data)
 export const getYearBooks = data => get('/getYearBooks', data)
 export const getPopulation = data => get('/getPopulation', data)
+export const getFourData = data => get('/getFourData', data)

@@ -19,7 +19,7 @@
             </div>
             <!-- 中间 -->
             <div>
-              <center :cdata="cdata" />
+              <center :cdata="cdata" :four-data="fourData" />
             </div>
             <!-- 中间 -->
             <div>
@@ -59,7 +59,7 @@ import weather from '@/views/components/index/weather'
 import gdp from '@/views/components/index/gdp'
 import city from '@/views/components/index/city'
 import top from "@/views/components/top";
-import {getPopulation} from "@/request";
+import {getFourData, getPopulation} from "@/request";
 
 export default {
   mixins: [ drawMixin ],
@@ -67,6 +67,7 @@ export default {
     return {
       loading: true,
       cdata:[],
+      fourData:{},
     }
   },
   components: {
@@ -82,6 +83,7 @@ export default {
   },
   mounted() {
     this.getPopulationList()
+    this.getFourDataList()
     this.cancelLoading()
   },
   methods: {
@@ -102,13 +104,22 @@ export default {
           res.name=res.county
           res.value=res.population
         })
-        console.log(this.cdata)
 
       }else{
         console.log('request error')
       }
+    },
+    async getFourDataList(){
+      const res = await getFourData({
+        city:this.$route.query['city']
+      })
+      if (res.code==="200"){
+        this.fourData = res.data
+      }else{
+        console.log('request error')
+      }
     }
-  }
+  },
 }
 </script>
 

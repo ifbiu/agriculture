@@ -24,7 +24,6 @@ import cityMapChart from "@/components/echart/module/cityMapChart";
 export default {
   data () {
     return {
-      cdata: [],
     }
   },
   props: {
