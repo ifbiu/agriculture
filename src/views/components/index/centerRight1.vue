@@ -6,7 +6,7 @@
           <icon name="chart-line" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">任务完成排行榜</span>
+          <span class="fs-xl text mx-2">测试排行榜</span>
         </div>
       </div>
       <div class="d-flex jc-center body-box">
@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       config: {
-        header: ['组件', '分支', '覆盖率'],
+        header: ['组件', '分支', '起伏率'],
         data: [
           ['组件1', 'dev-1', "<span  class='colorGrass'>↑75%</span>"],
           ['组件2', 'dev-2', "<span  class='colorRed'>↓33%</span>"],
