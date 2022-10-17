@@ -96,6 +96,52 @@ export function judgeRoute(city){
   return title;
 }
 
+export function judgeRouteDesc(title){
+  let city = ""
+  switch (title){
+    case "赤峰市":
+      city = "chifeng"
+      break
+    case "呼和浩特市":
+      city = "huhehaote"
+      break
+    case "通辽市":
+      city = "tongliao"
+      break
+    case "呼伦贝尔市":
+      city = "hulunbeier"
+      break
+    case "乌兰察布市":
+      city = "wulanchabu"
+      break
+    case "兴安盟":
+      city = "xinganmeng"
+      break
+    case "鄂尔多斯市":
+      city = "eerduosi"
+      break
+    case "锡林郭勒盟":
+      city = "xilinguole"
+      break
+    case "包头市":
+      city = "baotou"
+      break
+    case "巴彦淖尔市":
+      city = "bayannaoer"
+      break
+    case "乌海市":
+      city = "wuhai"
+      break
+    case "阿拉善盟":
+      city = "alashan"
+      break
+
+    default:
+      city = ""
+  }
+  return city;
+}
+
 // 把获取到的数据通过调用JSON.parse()方法转换成对象
 export const isJSON = s => {
   try {

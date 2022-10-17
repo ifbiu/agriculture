@@ -12,6 +12,8 @@
 
 <script>
 import Echart from '@/common/echart';
+import {judgeRouteDesc} from "@/utils";
+import router from '@/router'
 export default {
   data() {
     return {
@@ -236,6 +238,10 @@ export default {
           map.on('globalout', function () {
             _self.reSelectMapRandomArea();
             _self.startInterval();
+          });
+          map.on('click', function (params){
+            console.log(judgeRouteDesc(params.name))
+            router.push({path:'/city',query: {city:judgeRouteDesc(params.name)}})
           });
           this.startInterval();
         } catch (error) {

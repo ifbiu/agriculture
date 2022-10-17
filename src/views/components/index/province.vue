@@ -10,11 +10,6 @@
           <div class="decoration2">
             <dv-decoration-2 :reverse="true" style="width:5px;height:6rem;" />
           </div>
-          <ul class="menu-link">
-            <li v-for="(city,index) in citys" :key="index">
-              <a :href="'/city?city='+city.abbreviation">{{city.name}}</a>
-            </li>
-          </ul>
         </div>
       </div>
       <div>
