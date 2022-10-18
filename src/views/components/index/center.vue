@@ -23,27 +23,27 @@
         <span class="fs-xl text mx-2 mb-1 pl-3">{{city}}人口排行</span>
         <dv-scroll-ranking-board class="dv-scr-rank-board mt-1" :config="ranking" />
       </div>
-      <div class="percent">
-        <div class="item bg-color-black">
-          <span>今日任务通过率</span>
-          <CenterChart
-            :id="rate[0].id"
-            :tips="rate[0].tips"
-            :colorObj="rate[0].colorData"
-          />
-        </div>
-        <div class="item bg-color-black">
-          <span>今日任务达标率</span>
-          <CenterChart
-            :id="rate[1].id"
-            :tips="rate[1].tips"
-            :colorObj="rate[1].colorData"
-          />
-        </div>
-        <div class="water">
-          <dv-water-level-pond class="dv-wa-le-po" :config="water" />
-        </div>
-      </div>
+<!--      <div class="percent">-->
+<!--        <div class="item bg-color-black">-->
+<!--          <span>今日任务通过率</span>-->
+<!--          <CenterChart-->
+<!--            :id="rate[0].id"-->
+<!--            :tips="rate[0].tips"-->
+<!--            :colorObj="rate[0].colorData"-->
+<!--          />-->
+<!--        </div>-->
+<!--        <div class="item bg-color-black">-->
+<!--          <span>今日任务达标率</span>-->
+<!--          <CenterChart-->
+<!--            :id="rate[1].id"-->
+<!--            :tips="rate[1].tips"-->
+<!--            :colorObj="rate[1].colorData"-->
+<!--          />-->
+<!--        </div>-->
+<!--        <div class="water">-->
+<!--          <dv-water-level-pond class="dv-wa-le-po" :config="water" />-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
@@ -200,7 +200,7 @@ export default {
     }
     .ranking {
       padding: 10px;
-      width: 59%;
+      width: 100%;
       .dv-scr-rank-board {
         height: 225px;
       }

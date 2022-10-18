@@ -10,7 +10,7 @@
         </div>
       </div>
       <div>
-        <gdpChart />
+        <gdpChart :cdata="cdata" />
       </div>
     </div>
   </div>
@@ -21,7 +21,13 @@ import gdpChart from '@/components/echart/module/gdpChart'
 export default {
   components: {
     gdpChart
-  }
+  },
+  props: {
+    cdata: {
+      type: Array,
+      default: () => [],
+    },
+  },
 }
 </script>
 

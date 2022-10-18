@@ -22,12 +22,12 @@
               <center :cdata="cdata" :four-data="fourData" />
             </div>
             <!-- 中间 -->
-            <div>
-              <centerRight2 />
-            </div>
+<!--            <div>-->
+<!--              <centerRight2 :cdata="ybdata" />-->
+<!--            </div>-->
             <div>
               <dv-border-box-13>
-                <centerRight1 />
+                <centerRight1 :cdata="ybdata" />
               </dv-border-box-13>
             </div>
           </div>
@@ -35,7 +35,7 @@
           <!-- 第四行数据 -->
           <div class="bottom-box">
             <dv-border-box-13>
-              <gdp />
+              <gdp :cdata="ybdata" />
             </dv-border-box-13>
             <dv-border-box-12>
               <city :cdata="cdata" />
@@ -59,7 +59,7 @@ import weather from '@/views/components/index/weather'
 import gdp from '@/views/components/index/gdp'
 import city from '@/views/components/index/city'
 import top from "@/views/components/top";
-import {getFourData, getPopulation} from "@/request";
+import {getFourData, getPopulation, getYearBooks} from "@/request";
 
 export default {
   mixins: [ drawMixin ],
@@ -68,6 +68,7 @@ export default {
       loading: true,
       cdata:[],
       fourData:{},
+      ybdata:[]
     }
   },
   components: {
@@ -84,6 +85,7 @@ export default {
   mounted() {
     this.getPopulationList()
     this.getFourDataList()
+    this.getYearBooksList()
     this.cancelLoading()
   },
   methods: {
@@ -115,6 +117,16 @@ export default {
       })
       if (res.code==="200"){
         this.fourData = res.data
+      }else{
+        console.log('request error')
+      }
+    },
+    async getYearBooksList(){
+      const res = await getYearBooks({
+        city:this.$route.query['city']
+      })
+      if (res.code==="200"){
+        this.ybdata = res.data
       }else{
         console.log('request error')
       }

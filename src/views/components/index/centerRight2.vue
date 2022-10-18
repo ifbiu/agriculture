@@ -5,11 +5,11 @@
         <span>
           <icon name="align-left" class="text-icon"></icon>
         </span>
-        <span class="fs-xl text mx-2">测试排行</span>
+        <span class="fs-xl text mx-2">粮食产量排行</span>
       </div>
       <div class="d-flex ai-center flex-column body-box">
         <dv-capsule-chart class="dv-cap-chart" :config="config" />
-        <centerRight2Chart1 />
+<!--        <centerRight2Chart1 />-->
       </div>
     </div>
   </div>
@@ -19,31 +19,18 @@
 import centerRight2Chart1 from '@/components/echart/centerRight/centerRightChart'
 
 export default {
+  props: {
+    cdata: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       config: {
-        data: [
-          {
-            name: '测试1',
-            value: 167
-          },
-          {
-            name: '测试2',
-            value: 67
-          },
-          {
-            name: '测试3',
-            value: 123
-          },
-          {
-            name: '测试4',
-            value: 55
-          },
-          {
-            name: '测试5',
-            value: 98
-          }
-        ]
+        data: this.cdata.map(res=>{
+          return {name:res.county,value:res.grain_yield}
+        })
       }
     }
   },
@@ -73,7 +60,7 @@ export default {
     overflow: hidden;
     .dv-cap-chart {
       width: 100%;
-      height: 160px;
+      height: 360px;
     }
   }
 }
