@@ -6,7 +6,7 @@
           <icon name="chart-line" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">{{city}}农作物产量排行榜</span>
+          <span class="fs-xl text mx-2">{{city}}农作物产量详情</span>
         </div>
       </div>
       <div class="d-flex jc-center body-box">
