@@ -6,7 +6,7 @@
           <icon name="chart-line" class="text-icon"></icon>
         </span>
         <div class="d-flex">
-          <span class="fs-xl text mx-2">油料产量排行榜</span>
+          <span class="fs-xl text mx-2">{{city}}农作物产量排行榜</span>
         </div>
       </div>
       <div class="d-flex jc-center body-box">
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import {judgeRoute} from "@/utils";
+
 export default {
   props: {
     cdata: {
@@ -91,7 +93,8 @@ export default {
         index: true,
         columnWidth: [50,180,100,100,100,100,100,100],
         align: ['center']
-      }
+      },
+      city:judgeRoute(this.$route.query['city']),
     }
   }
 }
