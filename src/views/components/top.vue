@@ -26,10 +26,10 @@
       <div class="d-flex aside-width">
         <div class="react-left ml-4 react-l-s">
           <span class="react-left"></span>
-          <span class="text">待展示文字1</span>
+          <span class="text">实时监控</span>
         </div>
         <div class="react-left ml-3">
-          <span class="text">待展示文字2</span>
+          <span class="text">数据详情</span>
         </div>
       </div>
       <div class="d-flex aside-width">
